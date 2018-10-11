@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h2>Dodaj swój plik </h2>
+
+        {{ form(form, {"attr": {"novalidate": "novalidate"}}) }}
+
+        <div class="form-group" style="margin-top: 20px">
+            <p>Zaloguj się, aby zobaczyć dodane pliki.</p>
+            <a href="{{ url('fos_user_security_login') }}">
+                <input class="btn btn-info" type="submit" id="_submit" name="_submit" value="Zaloguj się" />
+            </a>
+        </div>
+
+    </div>
+{% endblock %}

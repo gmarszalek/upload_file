@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Lista dodanych plików</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>File</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for upload in upload %}
+            <tr>
+                <td>{{ upload.name }}</td>
+                <td>{{ upload.surname }}</td>
+                <td><a href="{{ absolute_url(asset('uploads/images/'~upload.file)) }}" download=>Pobierz plik</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="container" style="margin-top: 20px">
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="{{ url('fos_user_security_logout') }}">Wyloguj się</a></li>
+        </ul>
+    </div>
+
+{% endblock %}
